@@ -46,6 +46,10 @@ The colorization model used in this project is based on the following files:
 
 These files are included in the `model` directory.
 
+## Working
+Below is the working of the model with a simple GUI with 3 buttons one for image, video and webcam respectively.
+![Working of the Model](images/readmeimages/working.png)
+
 ## Acknowledgements
 This project utilizes the following resources:
 - [OpenCV](https://opencv.org/): Open Source Computer Vision Library.
