@@ -6,7 +6,7 @@ import numpy as np
 import os
 
 # Paths to load the model
-DIR = r"D:/Projects/colorization"
+DIR = r"D:/Projects/Colorization-using-Deep-Learning"
 PROTOTXT = os.path.join(DIR, r"model/colorization_deploy_v2.prototxt")
 POINTS = os.path.join(DIR, r"model/pts_in_hull.npy")
 MODEL = os.path.join(DIR, r"model/colorization_release_v2.caffemodel")
