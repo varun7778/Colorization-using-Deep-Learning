@@ -46,6 +46,11 @@ The colorization model used in this project is based on the following files:
 
 These files are included in the `model` directory.
 
+## Accuracy
+Mean Squared Error (MSE): 15.597761044176707
+Peak Signal-to-Noise Ratio (PSNR): 36.20018098150905
+Structural Similarity Index (SSIM): 0.9980466894129395
+
 ## Acknowledgements
 This project utilizes the following resources:
 - [OpenCV](https://opencv.org/): Open Source Computer Vision Library.

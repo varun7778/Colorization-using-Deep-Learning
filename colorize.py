@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 from PIL import ImageTk, Image
+from skimage.metrics import structural_similarity as ssim
 import cv2
 import numpy as np
 import os
@@ -13,7 +14,6 @@ MODEL = os.path.join(DIR, r"model/colorization_release_v2.caffemodel")
 
 
 def load_model():
-    print("Load model")
     net = cv2.dnn.readNetFromCaffe(PROTOTXT, MODEL)
     pts = np.load(POINTS)
 
@@ -41,6 +41,11 @@ def colorize_image():
 
         # Display results
         display_frame(image, colorized)
+
+        mse, psnr, ssim_value = calculate_metrics(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), cv2.cvtColor(colorized, cv2.COLOR_BGR2GRAY))
+        print("Mean Squared Error (MSE):", mse)
+        print("Peak Signal-to-Noise Ratio (PSNR):", psnr)
+        print("Structural Similarity Index (SSIM):", ssim_value)
 
 
 def colorize_video():
@@ -156,6 +161,18 @@ def display_frame(original, colorized):
     colorized_label.image = colorized_img
     colorized_label.grid(row=0, column=1, padx=10)
 
+def calculate_metrics(ground_truth, colorized):
+    # Mean Squared Error (MSE)
+    mse = np.mean((ground_truth - colorized) ** 2)
+
+    # Peak Signal-to-Noise Ratio (PSNR)
+    max_pixel = 255.0
+    psnr = 20 * np.log10(max_pixel / np.sqrt(mse))
+
+    # Structural Similarity Index (SSIM)
+    ssim_value, _ = ssim(ground_truth, colorized, full=True)
+
+    return mse, psnr, ssim_value
 
 # Create the main window
 root = tk.Tk()
