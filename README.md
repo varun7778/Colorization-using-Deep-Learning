@@ -51,9 +51,9 @@ Below is the working of the model with a simple GUI with 3 buttons one for image
 ![Working of the Model](images/readmeimages/working.png)
 
 ## Accuracy
-Mean Squared Error (MSE): 15.597761044176707
-Peak Signal-to-Noise Ratio (PSNR): 36.20018098150905
-Structural Similarity Index (SSIM): 0.9980466894129395
+- Mean Squared Error (MSE): 15.597761044176707
+- Peak Signal-to-Noise Ratio (PSNR): 36.20018098150905
+- Structural Similarity Index (SSIM): 0.9980466894129395
 
 
 ## Acknowledgements
